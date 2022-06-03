@@ -10,13 +10,13 @@ function Counter() {
   }
   // parasyti funkcija handleCounterDecrement() kuri mazina counterValue 1
   const handleCounterDecrement = () => {
-    if (counterValue <= 0) {
-      return;
-    }
+    // if (counterValue <= 0) {
+    //   return;
+    // }
     setCounterValue((prevState) => prevState - 1);
   };
 
-  const isCounterPositive = counterValue !== 0;
+  const isCounterPositive = counterValue > 0;
   // parasyti funkcija handleCounterChange() kuri mazina arba didina counterValue 1
 
   // handleCounterIncrement() infinite loop
@@ -30,14 +30,14 @@ function Counter() {
   return (
     <div className='counter'>
       <h3 onMouseEnter={() => console.log('Patrauk kursoriu!!!')}>Push ups Counter</h3>
-      <h2>{counterValue}</h2>
+      <h2 className={`${isCounterPositive ? 'positive' : 'negative'}`}>{counterValue}</h2>
       <div className='control'>
         <button onClick={handleCounterIncrement} className='btn'>
           plus
         </button>
         {isCounterPositive && (
           <button
-            disabled={!isCounterPositive}
+            // disabled={!isCounterPositive}
             onClick={handleCounterDecrement}
             className='btn'
           >
