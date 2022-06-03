@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-function Counter() {
+function Counter(props) {
   // let counterValue = 0
-  const [counterValue, setCounterValue] = useState(0);
+  const [counterValue, setCounterValue] = useState(props.startValue || 0);
 
   // parasyti funkcija handleCounterIncrement() kuri didina counterValue 1
   function handleCounterIncrement() {
@@ -29,8 +29,8 @@ function Counter() {
 
   return (
     <div className='counter'>
-      <h3 onMouseEnter={() => console.log('Patrauk kursoriu!!!')}>Push ups Counter</h3>
-      <h2 className={`${isCounterPositive ? 'positive' : 'negative'}`}>{counterValue}</h2>
+      <h3>{props.title} Counter</h3>
+      <h2>{counterValue}</h2>
       <div className='control'>
         <button onClick={handleCounterIncrement} className='btn'>
           plus

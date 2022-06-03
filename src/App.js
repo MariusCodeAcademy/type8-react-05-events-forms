@@ -8,11 +8,11 @@ function App() {
     <div className='App'>
       <h1>Heloo again world</h1>
       {/* TODO: add multile conters with titles */}
-      {/* <CounterList /> */}
+      <CounterList />
       {/* <Counter />
       <Counter />
       <Counter /> */}
-      <Login />
+      {/* <Login /> */}
     </div>
   );
 }
