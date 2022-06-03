@@ -6,6 +6,7 @@ function Counter(props) {
 
   // parasyti funkcija handleCounterIncrement() kuri didina counterValue 1
   function handleCounterIncrement() {
+    counterUp(props.id, 5);
     setCounterValue((prevState) => prevState + 1);
   }
   // parasyti funkcija handleCounterDecrement() kuri mazina counterValue 1
