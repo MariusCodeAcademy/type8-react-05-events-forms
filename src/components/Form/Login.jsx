@@ -27,31 +27,35 @@ function Login() {
 
   return (
     <div className='login'>
-      <input
-        onChange={usernameEnterHandler}
-        value={usernameValue}
-        type='text'
-        placeholder='Login here'
-      />
-      <input
-        onChange={passwordEnterHandler}
-        value={passwordValue}
-        type='password'
-        placeholder='Password'
-      />
+      <form onSubmit={sendValues}>
+        <input
+          onChange={usernameEnterHandler}
+          value={usernameValue}
+          type='text'
+          placeholder='Login here'
+        />
+        <input
+          onChange={passwordEnterHandler}
+          value={passwordValue}
+          type='password'
+          placeholder='Password'
+        />
 
-      <h3>Jus ivedete: {usernameValue}</h3>
+        <h3>Jus ivedete: {usernameValue}</h3>
 
-      <button onClick={sendValues}>send</button>
+        <button type='submit'>send</button>
+      </form>
       {showUsername && <h2>{usernameValue}</h2>}
     </div>
   );
 
-  function sendValues() {
+  function sendValues(event) {
+    event.preventDefault();
     // send values
     // pagaminti objekta is input reiksmiu
     // kai mums reikia reiksmiu mes imam is state
     // nes sate yra sinkronizuota su inputais
+    if (usernameValue === '') return;
     const loginObj = {
       username: usernameValue,
       password: passwordValue,
